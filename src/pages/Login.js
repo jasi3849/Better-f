@@ -295,8 +295,8 @@ function Login({ onLoginSuccess }) {
     try {
       if (isSignupMode) {
         // Signup mode: Send username, email, and password
-        console.log('Making signup request to:', `${process.env.REACT_APP_API_URL}/auth/signup`);
-        const signupResponse = await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+        console.log('Making signup request to:', `${process.env.REACT_APP_API_URL}/api/auth/signup`);
+        const signupResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
           name: username,
           email,
           password
@@ -311,9 +311,9 @@ function Login({ onLoginSuccess }) {
         }
       } else {
         // Login mode: Try to log in with password only
-        console.log('Making login request to:', `${process.env.REACT_APP_API_URL}/auth/login`);
+        console.log('Making login request to:', `${process.env.REACT_APP_API_URL}/api/auth/login`);
         console.log('With password:', password);
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, { password });
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, { password });
         console.log('Login response:', response.data);
         
         const { data } = response;
