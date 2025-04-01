@@ -67,7 +67,7 @@ function MorningChecklist() {
 
       setTasks([...tasks, newTask]);
       setNewItem('');
-      setError(null);
+      // setError(null);
     } catch (err) {
       console.error('Error adding task:', err);
       // setError('Failed to add task. Please try again.');
@@ -98,7 +98,7 @@ function MorningChecklist() {
       setTasks(tasks.map(task =>
         task.id === id ? updatedTask : task
       ));
-      setError(null);
+      // setError(null);
     } catch (err) {
       console.error('Error toggling task:', err);
       // setError('Failed to update task. Please try again.');
@@ -121,7 +121,7 @@ function MorningChecklist() {
       });
 
       setTasks(tasks.filter(task => task.id !== id));
-      setError(null);
+      // setError(null);
     } catch (err) {
       console.error('Error deleting task:', err);
       // setError('Failed to delete task. Please try again.');
