@@ -337,7 +337,7 @@ function PastReflections() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`${API_URL}/past-reflections?page=${pageNum}`, {
+      const response = await axios.get(`${API_URL}/api/past-reflections?page=${pageNum}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

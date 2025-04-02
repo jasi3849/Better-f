@@ -17,7 +17,7 @@ function MorningChecklist() {
     const fetchTasks = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`${API_URL}/morning-checklist`, {
+        const response = await axios.get(`${API_URL}/api/morning-checklist`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         // Map backend data to match frontend structure
@@ -54,7 +54,7 @@ function MorningChecklist() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `${API_URL}/morning-checklist`,
+        `${API_URL}/api/morning-checklist`,
         { text: newItem.trim() },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -84,7 +84,7 @@ function MorningChecklist() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `${API_URL}/morning-checklist/${id}`,
+        `${API_URL}/api/morning-checklist/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -116,7 +116,7 @@ function MorningChecklist() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`${API_URL}/morning-checklist/${id}`, {
+      await axios.delete(`${API_URL}/api/morning-checklist/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

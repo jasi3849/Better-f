@@ -12,7 +12,7 @@ useEffect(() => {
   const fetchReflection = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`${API_URL}/moment-of-day`, {
+      const response = await axios.get(`${API_URL}/api/moment-of-day`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.data) {
