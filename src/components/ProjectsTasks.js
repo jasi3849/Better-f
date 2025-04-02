@@ -1740,7 +1740,7 @@ function ProjectsTasks() {
       try {
         const token = localStorage.getItem('token');
         console.log('Fetching projects with token:', token ? 'Token present' : 'No token');
-        const response = await axios.get(`${API_URL}/projects-tasks/projects`, {
+        const response = await axios.get(`${API_URL}/api/projects-tasks/projects`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('Projects fetched:', response.data.data);
@@ -1769,7 +1769,7 @@ function ProjectsTasks() {
         try {
           const token = localStorage.getItem('token');
           console.log('Fetching tasks for project:', selectedProject);
-          const response = await axios.get(`${API_URL}/projects-tasks/tasks/${selectedProject}`, {
+          const response = await axios.get(`${API_URL}/api/projects-tasks/tasks/${selectedProject}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           console.log('Tasks fetched:', response.data.data);
@@ -1798,7 +1798,7 @@ function ProjectsTasks() {
         const token = localStorage.getItem('token');
         console.log('Adding project:', newProjectName);
         const response = await axios.post(
-          `${API_URL}/projects-tasks/projects`,
+          `${API_URL}/api/projects-tasks/projects`,
           { name: newProjectName.trim() },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -1828,7 +1828,7 @@ function ProjectsTasks() {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.post(
-          `${API_URL}/projects-tasks/tasks`,
+          `${API_URL}/api/projects-tasks/tasks`,
           { projectId: selectedProject, text: newTask.trim(), type: selectedTaskType },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -1855,7 +1855,7 @@ function ProjectsTasks() {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.put(
-          `${API_URL}/projects-tasks/tasks/${taskId}`,
+          `${API_URL}/api/projects-tasks/tasks/${taskId}`,
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -1880,7 +1880,7 @@ function ProjectsTasks() {
     if (selectedProject) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`${API_URL}/projects-tasks/tasks/${taskId}`, {
+        await axios.delete(`${API_URL}/api/projects-tasks/tasks/${taskId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProjectTasks(prev => ({
@@ -1904,8 +1904,8 @@ function ProjectsTasks() {
       return;
     }
     try {
-      console.log('Sending DELETE request to:', `${API_URL}/projects-tasks/projects/${projectId}`);
-      const response = await axios.delete(`${API_URL}/projects-tasks/projects/${projectId}`, {
+      console.log('Sending DELETE request to:', `${API_URL}/api/projects-tasks/projects/${projectId}`);
+      const response = await axios.delete(`${API_URL}/api/projects-tasks/projects/${projectId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log('Project deleted successfully:', response.data);
