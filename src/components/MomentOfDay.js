@@ -34,7 +34,7 @@ const handleSaveReflection = async () => {
   try {
     const token = localStorage.getItem('token');
     const response = await axios.post(
-      `${API_URL}/moment-of-day`,
+      `${API_URL}/api/moment-of-day`,
       { reflection: reflection.trim() },
       { headers: { Authorization: `Bearer ${token}` } }
     );
